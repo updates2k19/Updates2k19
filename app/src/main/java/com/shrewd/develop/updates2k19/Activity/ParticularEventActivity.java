@@ -1,11 +1,13 @@
-package com.shrewd.develop.updates2k19;
+package com.shrewd.develop.updates2k19.Activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
-public class ParticularEvent_np extends AppCompatActivity {
+import com.shrewd.develop.updates2k19.R;
+
+public class ParticularEventActivity extends AppCompatActivity {
 
     String eventId,eventName,eventDate,paid;
     TextView txt_pe_eventId,txt_pe_eventName,txt_pe_eventDate,txt_pe_paid;

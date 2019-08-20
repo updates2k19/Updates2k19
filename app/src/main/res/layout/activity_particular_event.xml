@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/_5sdp"
     android:orientation="vertical"
-    tools:context=".ParticularEvent_np">
+    tools:context=".Activity.ParticularEventActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
