@@ -4,24 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/background_registration"
     android:orientation="vertical"
-    android:background="@mipmap/back"
-    tools:context=".Register">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_35sdp"
-        android:text="Register"
-        android:textColor="#fff"
-        android:textSize="@dimen/_25sdp" />
-
-    <TextView
-        android:layout_width="@dimen/_85sdp"
-        android:layout_height="@dimen/_2sdp"
-        android:background="#fff"
-        android:layout_gravity="center"></TextView>
+    tools:context="com.shrewd.develop.updates2k19.Activity.RegistrationActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,11 +15,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
             android:orientation="vertical"
             android:padding="@dimen/_30sdp">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/register"
+                android:textColor="#fff"
+                android:textSize="@dimen/_25sdp" />
+
+            <TextView
+                android:layout_marginTop="@dimen/_35sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="First name"
@@ -42,9 +35,9 @@
                 android:textSize="@dimen/_15sdp" />
 
             <EditText
+                android:id="@+id/etFirstName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -55,9 +48,9 @@
                 android:textSize="@dimen/_15sdp" />
 
             <EditText
+                android:id="@+id/etLastName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,21 +61,22 @@
                 android:textSize="@dimen/_15sdp" />
 
             <EditText
+                android:id="@+id/etCollege"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="Enrolment Number"
                 android:textColor="#fff"
                 android:textSize="@dimen/_15sdp" />
 
             <EditText
+                android:id="@+id/etEnrolment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
+                android:inputType="number" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,6 +87,7 @@
                 android:textSize="@dimen/_15sdp" />
 
             <EditText
+                android:id="@+id/etMobileNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone" />
@@ -112,21 +107,24 @@
                 android:orientation="horizontal">
 
                 <RadioGroup
+                    android:id="@+id/rdoGender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <RadioButton
+                        android:id="@+id/rbtnMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Male"
                         android:textColor="#fff" />
 
                     <RadioButton
+                        android:id="@+id/rbtnFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_50sdp"
-                        android:text="Male"
+                        android:text="Female"
                         android:textColor="#fff" />
 
                 </RadioGroup>
@@ -137,11 +135,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="College name"
+                android:text="Year"
                 android:textColor="#fff"
                 android:textSize="@dimen/_15sdp" />
 
             <EditText
+                android:id="@+id/etYear"
+                android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -149,46 +149,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="Year"
+                android:text="Department"
                 android:textColor="#fff"
                 android:textSize="@dimen/_15sdp" />
 
             <EditText
+                android:id="@+id/etDepartment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:text="Department id"
-                android:textColor="#fff"
-                android:textSize="@dimen/_15sdp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:text="User type id"
-                android:textColor="#fff"
-                android:textSize="@dimen/_15sdp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number" />
-
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Submit"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_submit_button"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_40sdp" />
 
         </LinearLayout>
 
     </ScrollView>
-
-
 
 </LinearLayout>

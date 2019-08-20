@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class EventsFragment extends Fragment {
     private Context mContext;
     private RecyclerView rvEvents;
     private ArrayList<EventDetail> alEventDetail = new ArrayList<>();
+    private final String TAG = "EventsFragment";
 
     public EventsFragment() {
         // Required empty public constructor
@@ -63,6 +65,23 @@ public class EventsFragment extends Fragment {
                             }
                             alEventDetail.clear();
                             for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.description));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.event_type));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.faculty_coordinator));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.flyer));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.icon_url));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.ln_hindi));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.name));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.poster));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.qualified_participants));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.schedule));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.student_coordinator));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.student_volunteer));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.tagline));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.end_time));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.location_desc));
+                                Log.e(TAG, "onComplete: "+ documentSnapshot.get(CS.start_time));
+
                                 EventDetail event = new EventDetail(String.valueOf(documentSnapshot.get(CS.description)),
                                         String.valueOf(documentSnapshot.get(CS.event_type)),String.valueOf(documentSnapshot.get(CS.faculty_coordinator)),
                                         String.valueOf(documentSnapshot.get(CS.flyer)),String.valueOf(documentSnapshot.get(CS.icon_url)),

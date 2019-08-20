@@ -30,7 +30,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.one_event,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.event,parent,false);
         return new ViewHolder(view);
     }
 
@@ -39,7 +39,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         EventDetail eventDetail = alEventDetail.get(position);
         Picasso.get().load(eventDetail.getIcon_url()).placeholder(R.mipmap.logo).into(holder.civIcon);
         holder.tvName.setText(eventDetail.getName());
-        holder.tvDate.setText(eventDetail.getStart_time());
+        holder.tvTime.setText(eventDetail.getStart_time());
         holder.tvType.setText(eventDetail.getEvent_type());
         holder.tvTagLine.setText(eventDetail.getName());
     }
@@ -51,14 +51,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tvName,tvDate,tvType,tvTagLine;
+        private TextView tvName,tvTime,tvType,tvTagLine;
         private CircleImageView civIcon;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             civIcon = (CircleImageView)itemView.findViewById(R.id.civIcon);
             tvName = (TextView)itemView.findViewById(R.id.tvName);
-            tvDate = (TextView)itemView.findViewById(R.id.tvDate);
+            tvTime = (TextView)itemView.findViewById(R.id.tvTime);
             tvType = (TextView)itemView.findViewById(R.id.tvType);
             tvTagLine = (TextView)itemView.findViewById(R.id.tvTagLine);
         }

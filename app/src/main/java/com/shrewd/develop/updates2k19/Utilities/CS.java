@@ -18,4 +18,15 @@ public class CS {
     public final static String end_time = "end_time";
     public final static String location_desc = "location_desc";
     public final static String start_time = "start_time";
+    public final static String college = "college";
+    public final static String deptId = "department_id";
+    public final static String email = "email";
+    public final static String enrolment = "enrolment";
+    public final static String firstName = "first_name";
+    public final static String lastName = "last_name";
+    public final static String gender = "gender";
+    public final static String mobileNo = "mobile";
+    public final static String userTypeId = "user_type_id";
+    public final static String year = "year";
+    public final static String participatedIn = "participated_in";
 }
