@@ -70,19 +70,19 @@ public class RegistrationActivity extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null && user.getEmail() != null)
                     data.put(CS.email,user.getEmail() );
-                data.put(CS.college, etCollege);
-                data.put(CS.deptId, etDepartment);
-                data.put(CS.enrolment, etEnrolment);
-                data.put(CS.firstName, etFirstName);
-                data.put(CS.lastName, etLastName);
-                data.put(CS.mobileNo, etMobileNo);
-                data.put(CS.year, etYear);
+                data.put(CS.college, etCollege.getText().toString());
+                data.put(CS.deptId, 7);
+                data.put(CS.enrolment, etEnrolment.getText().toString());
+                data.put(CS.firstName, etFirstName.getText().toString());
+                data.put(CS.lastName, etLastName.getText().toString());
+                data.put(CS.mobileNo, etMobileNo.getText().toString());
+                data.put(CS.year, etYear.getText().toString());
 
                 //MUST CHANGE
-                data.put(CS.gender,"Male");
+                data.put(CS.gender,1);
 
-                data.put(CS.userTypeId,"0");
-                data.put("push", true);
+                data.put(CS.userTypeId,0);
+//                data.put("push", true);
 
                 Task<String> task = mFunctions
                         .getHttpsCallable("registerUser")
