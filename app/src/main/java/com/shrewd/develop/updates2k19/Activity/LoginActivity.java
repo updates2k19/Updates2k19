@@ -29,6 +29,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.shrewd.develop.updates2k19.R;
 import com.shrewd.develop.updates2k19.Utilities.CU;
 
@@ -46,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     private LinearLayout llGoogle;
     private CircleImageView civGoogle;
     private Button btnGoogle;
+    private boolean isRegistred = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,9 +124,33 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         CU.hideProgress(progressBar);
         if (user != null) {
-            Toast.makeText(mContext, "Logged in", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(mContext,MainActivity.class));
-            finish();
+//            Toast.makeText(mContext, "Logged in", Toast.LENGTH_SHORT).show();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("users")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful() && task.getResult() != null) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    if (user != null && document.getId().equals(user.getUid())) {
+                                        isRegistred = true;
+                                        break;
+                                    }
+                                }
+                                if (isRegistred) {
+                                    startActivity(new Intent(mContext, MainActivity.class));
+                                    finish();
+                                } else {
+                                    startActivity(new Intent(mContext, RegistrationActivity.class));
+                                    finish();
+                                }
+                            } else {
+                                Log.e(TAG, "Error getting documents.", task.getException());
+                            }
+                        }
+                    });
 //            Snackbar.make(findViewById(R.id.main_layout),"Logged in",Snackbar.LENGTH_SHORT);
         }
     }
